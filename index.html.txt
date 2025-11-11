@@ -1,36 +1,34 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <!-- GÜVENLİK BAŞLANGIÇ -->
+    <!-- GÜVENLİK + FONT AWESOME -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- CSP: Sadece kendi domaininden script/css çalışır -->
+    <!-- CSP (Güvenlik) -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
-        script-src 'self' 'unsafe-inline';
-        style-src 'self' 'unsafe-inline';
-        img-src 'self' data:;
-        font-src 'self';
+        script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
+        style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
+        img-src 'self' data: https:;
+        font-src 'self' https://cdnjs.cloudflare.com;
         connect-src 'self';
         frame-ancestors 'none';
-        base-uri 'self';
-        form-action 'self';
     ">
     
-    <!-- XSS, Clickjacking, MIME Sniffing Koruması -->
+    <!-- Güvenlik Headerları -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="no-referrer">
-    
-    <!-- Otomatik HTTPS (Vercel) -->
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
-    
-    <title>PrimeCreators – Güvenli Abonelik Platformu</title>
-    
-    <!-- Güvenli Stil -->
+
+    <title>PrimeCreators – Profesyonel & Güvenli</title>
+
+    <!-- Font Awesome 6 (Ücretsiz CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <style>
         :root {
             --primary: #667eea;
@@ -59,7 +57,7 @@
         }
         
         .hero { text-align: center; padding: 80px 20px; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 15px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 15px; }
         .hero p { font-size: 1.3rem; margin-bottom: 30px; opacity: 0.9; }
         
         .cta {
@@ -84,12 +82,10 @@
             transition: transform 0.3s ease;
         }
         .card:hover { transform: translateY(-10px); }
-        .card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.4rem; }
+        .card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.4rem; display: flex; align-items: center; gap: 10px; }
         .card ul { list-style: none; }
-        .card li { padding: 8px 0; position: relative; padding-left: 28px; }
-        .card li:before { 
-            content: "🔒"; position: absolute; left: 0; font-weight: bold; 
-        }
+        .card li { padding: 10px 0; position: relative; padding-left: 35px; font-size: 1rem; }
+        .card li i { position: absolute; left: 0; color: var(--success); width: 20px; }
         
         .gdpr-notice {
             position: fixed; bottom: 0; left: 0; right: 0;
@@ -103,63 +99,61 @@
             cursor: pointer;
         }
     </style>
-    <!-- GÜVENLİK BİTİŞ -->
 </head>
 <body>
     <!-- Güvenlik Rozeti -->
     <div class="security-badge">
-        🔒 SSL + CSP + GDPR
+        <i class="fas fa-shield-alt"></i> SSL + CSP + GDPR
     </div>
 
     <div class="container">
         <div class="hero">
             <h1>PrimeCreators</h1>
-            <p><strong>Sızılmaz, Güvenli, Yasal</strong> – Yaratıcı İçerik Platformu</p>
-            <button class="cta" onclick="alert('Güvenli kayıt sistemi yakında aktif!')">Hemen Başla – İlk Ay Ücretsiz!</button>
+            <p><strong>Sızılmaz, Profesyonel, Yasal</strong> – Yaratıcı İçerik Platformu</p>
+            <button class="cta">Hemen Başla – İlk Ay Ücretsiz!</button>
         </div>
 
         <div class="features">
             <div class="card">
-                <h3>🛡️ Güvenlik Duvarı</h3>
+                <h3><i class="fas fa-lock"></i> Güvenlik Duvarı</h3>
                 <ul>
-                    <li>HTTPS + SSL (Otomatik)</li>
-                    <li>CSP ile XSS Engeli</li>
-                    <li>DDoS Koruması (Cloudflare)</li>
-                    <li>Clickjacking Koruması</li>
-                    <li>GDPR Uyumlu</li>
+                    <li><i class="fas fa-check-circle"></i> HTTPS + SSL (Otomatik)</li>
+                    <li><i class="fas fa-check-circle"></i> CSP ile XSS Engeli</li>
+                    <li><i class="fas fa-check-circle"></i> DDoS Koruması</li>
+                    <li><i class="fas fa-check-circle"></i> Clickjacking Koruması</li>
+                    <li><i class="fas fa-check-circle"></i> GDPR Uyumlu</li>
                 </ul>
             </div>
             <div class="card">
-                <h3>💰 Güvenli Ödeme</h3>
+                <h3><i class="fas fa-credit-card"></i> Güvenli Ödeme</h3>
                 <ul>
-                    <li>Stripe + PayPal</li>
-                    <li>PCI-DSS Uyumlu</li>
-                    <li>Kredi kartı bilgisi saklanmaz</li>
-                    <li>Otomatik fatura</li>
+                    <li><i class="fas fa-check-circle"></i> Stripe + PayPal</li>
+                    <li><i class="fas fa-check-circle"></i> PCI-DSS Uyumlu</li>
+                    <li><i class="fas fa-check-circle"></i> Kart bilgisi saklanmaz</li>
+                    <li><i class="fas fa-check-circle"></i> Otomatik fatura</li>
                 </ul>
             </div>
             <div class="card">
-                <h3>🚀 Teknik Güç</h3>
+                <h3><i class="fas fa-rocket"></i> Teknik Güç</h3>
                 <ul>
-                    <li>Next.js + Vercel</li>
-                    <li>Video Streaming (HLS)</li>
-                    <li>Canlı Yayın</li>
-                    <li>Mobil & Masaüstü</li>
-                    <li>99.99% Uptime</li>
+                    <li><i class="fas fa-check-circle"></i> Next.js + Vercel</li>
+                    <li><i class="fas fa-check-circle"></i> Video Streaming</li>
+                    <li><i class="fas fa-check-circle"></i> Canlı Yayın</li>
+                    <li><i class="fas fa-check-circle"></i> Mobil & Masaüstü</li>
+                    <li><i class="fas fa-check-circle"></i> 99.99% Uptime</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- GDPR Çerez Bildirimi -->
+    <!-- GDPR Bildirimi -->
     <div class="gdpr-notice" id="gdprNotice">
-        Bu site çerez kullanmaz. Kişisel veri saklamaz. 
+        <i class="fas fa-cookie-bite"></i> Bu site çerez kullanmaz. Kişisel veri saklamaz. 
         <button onclick="document.getElementById('gdprNotice').style.display='none'">Kabul Et</button>
     </div>
 
     <script>
-        // Güvenli JavaScript (sadece kendi domaininden çalışır)
-        console.log("%c🔒 PrimeCreators Güvenlik Sistemi Aktif", "color: #4ecdc4; font-size: 14px;");
+        console.log("%cPrimeCreators v3 – İkonlar Yüklendi!", "color: #4ecdc4; font-size: 16px;");
     </script>
 </body>
 </html>
