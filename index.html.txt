@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <!-- GÜVENLİK BAŞLANGIÇ -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CSP: Sadece kendi domaininden script/css çalışır -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline';
+        style-src 'self' 'unsafe-inline';
+        img-src 'self' data:;
+        font-src 'self';
+        connect-src 'self';
+        frame-ancestors 'none';
+        base-uri 'self';
+        form-action 'self';
+    ">
+    
+    <!-- XSS, Clickjacking, MIME Sniffing Koruması -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="no-referrer">
+    
+    <!-- Otomatik HTTPS (Vercel) -->
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    
+    <title>PrimeCreators – Güvenli Abonelik Platformu</title>
+    
+    <!-- Güvenli Stil -->
+    <style>
+        :root {
+            --primary: #667eea;
+            --accent: #ff6b6b;
+            --success: #4ecdc4;
+            --dark: #2d3436;
+            --light: #f8f9fa;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: linear-gradient(135deg, var(--primary) 0%, #764ba2 100%);
+            min-height: 100vh; 
+            color: white;
+            line-height: 1.6;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        .security-badge {
+            position: fixed; top: 10px; right: 10px; 
+            background: rgba(0,0,0,0.3); padding: 8px 12px; 
+            border-radius: 20px; font-size: 0.8rem; 
+            backdrop-filter: blur(10px); z-index: 1000;
+        }
+        
+        .hero { text-align: center; padding: 80px 20px; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 15px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.3rem; margin-bottom: 30px; opacity: 0.9; }
+        
+        .cta {
+            background: var(--accent); color: white; padding: 16px 40px; 
+            border: none; border-radius: 50px; font-size: 1.2rem; 
+            cursor: pointer; transition: all 0.3s ease; 
+            box-shadow: 0 8px 25px rgba(255,107,107,0.4);
+            font-weight: 600;
+        }
+        .cta:hover { 
+            background: #ff5252; transform: translateY(-3px); 
+            box-shadow: 0 12px 30px rgba(255,107,107,0.5);
+        }
+        
+        .features { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; margin-top: 60px; 
+        }
+        .card { 
+            background: white; color: var(--dark); border-radius: 15px; 
+            padding: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .card:hover { transform: translateY(-10px); }
+        .card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.4rem; }
+        .card ul { list-style: none; }
+        .card li { padding: 8px 0; position: relative; padding-left: 28px; }
+        .card li:before { 
+            content: "🔒"; position: absolute; left: 0; font-weight: bold; 
+        }
+        
+        .gdpr-notice {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: rgba(0,0,0,0.8); color: white; padding: 15px;
+            text-align: center; font-size: 0.9rem; backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+        .gdpr-notice button {
+            background: var(--success); border: none; color: white;
+            padding: 8px 20px; margin-left: 10px; border-radius: 20px;
+            cursor: pointer;
+        }
+    </style>
+    <!-- GÜVENLİK BİTİŞ -->
+</head>
+<body>
+    <!-- Güvenlik Rozeti -->
+    <div class="security-badge">
+        🔒 SSL + CSP + GDPR
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <h1>PrimeCreators</h1>
+            <p><strong>Sızılmaz, Güvenli, Yasal</strong> – Yaratıcı İçerik Platformu</p>
+            <button class="cta" onclick="alert('Güvenli kayıt sistemi yakında aktif!')">Hemen Başla – İlk Ay Ücretsiz!</button>
+        </div>
+
+        <div class="features">
+            <div class="card">
+                <h3>🛡️ Güvenlik Duvarı</h3>
+                <ul>
+                    <li>HTTPS + SSL (Otomatik)</li>
+                    <li>CSP ile XSS Engeli</li>
+                    <li>DDoS Koruması (Cloudflare)</li>
+                    <li>Clickjacking Koruması</li>
+                    <li>GDPR Uyumlu</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>💰 Güvenli Ödeme</h3>
+                <ul>
+                    <li>Stripe + PayPal</li>
+                    <li>PCI-DSS Uyumlu</li>
+                    <li>Kredi kartı bilgisi saklanmaz</li>
+                    <li>Otomatik fatura</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>🚀 Teknik Güç</h3>
+                <ul>
+                    <li>Next.js + Vercel</li>
+                    <li>Video Streaming (HLS)</li>
+                    <li>Canlı Yayın</li>
+                    <li>Mobil & Masaüstü</li>
+                    <li>99.99% Uptime</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- GDPR Çerez Bildirimi -->
+    <div class="gdpr-notice" id="gdprNotice">
+        Bu site çerez kullanmaz. Kişisel veri saklamaz. 
+        <button onclick="document.getElementById('gdprNotice').style.display='none'">Kabul Et</button>
+    </div>
+
+    <script>
+        // Güvenli JavaScript (sadece kendi domaininden çalışır)
+        console.log("%c🔒 PrimeCreators Güvenlik Sistemi Aktif", "color: #4ecdc4; font-size: 14px;");
+    </script>
+</body>
+</html>
